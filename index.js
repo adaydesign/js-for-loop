@@ -3,11 +3,11 @@ console.log(`Test Loop : For vs ForEach vs For in`)
 // list
 var list = []
 var ch = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
-var num = 50000000
+var num = 10000000
 console.log('Prepare List data')
 const start = new Date().getTime()
 for (let i = 0; i < num; i++) {
-    // let msg = `#${i}${ch[i%ch.length]}${i}${Math.random()*num}%`
+    let msg = `#${i}${ch[i % ch.length]}${i}${Math.random() * num}%`
     list.push(`x`)
 }
 const useTime = new Date().getTime() - start
@@ -21,11 +21,9 @@ function testFor(items) {
         sum += i
     }
     const useTime = new Date().getTime() - start
-    //console.log(`>> FOR : ${useTime} | ${sum}`)
-    console.log('finished <')
 
     return {
-        'type': 'for',
+        'type': "for",
         'time': useTime,
         'check': sum
     }
@@ -39,11 +37,9 @@ function testForEach(items) {
         sum += index
     })
     const useTime = new Date().getTime() - start
-    // console.log(`>> FOR Each : ${useTime} | ${sum}`)
-    console.log('finished <')
 
     return {
-        'type': 'forEach',
+        'type': "for each",
         'time': useTime,
         'check': sum
     }
@@ -60,10 +56,9 @@ function testForIn(items) {
         index += 1
     }
     const useTime = new Date().getTime() - start
-    // console.log(`>> FOR In : ${useTime} | ${sum}`)
-    console.log('finished <')
+
     return {
-        'type': 'for in',
+        'type': "for in",
         'time': useTime,
         'check': sum
     }
@@ -80,11 +75,9 @@ function testForOf(items) {
         index += 1
     }
     const useTime = new Date().getTime() - start
-    // console.log(`>> FOR Of : ${useTime} | ${sum}`)
-    console.log('finished <')
 
     return {
-        'type': 'for of',
+        'type': "for of",
         'time': useTime,
         'check': sum
     }
@@ -99,11 +92,9 @@ function testMap(items) {
         return obj
     })
     const useTime = new Date().getTime() - start
-    // console.log(`>> Map : ${useTime} | ${sum}`)
-    console.log('finished <')
 
     return {
-        'type': 'map',
+        'type': "map",
         'time': useTime,
         'check': sum
     }
@@ -120,12 +111,27 @@ console.log(`Average items length (character): ${sumItemLg / list.length}`)
 console.log('')
 
 var result = []
-result.push(testFor(list))
-result.push(testForEach(list))
-result.push(testForIn(list))
-result.push(testForOf(list))
-result.push(testMap(list))
+var numTest = 20
+for (let i = 0; i < numTest; i++) {
+    // result.push({ "no":(i+1), ...testFor(list)})
+    // result.push({ "no":(i+1), ...testForEach(list)})
+    // result.push({ "no":(i+1), ...testForIn(list)})
+    // result.push({ "no":(i+1), ...testForOf(list)})
+    // result.push({ "no":(i+1), ...testMap(list)})
+    const f1 = testFor(list)
+    const f2 = testForEach(list)
+    const f3 = testForIn(list)
+    const f4 = testForOf(list)
+    const m1 = testMap(list)
 
+    result.push({ 
+        "for": f1.time,
+        "for each": f2.time,
+        "for in": f3.time,
+        "for of": f4.time,
+        "map": m1.time,
+    })
+}
 console.log('')
 console.log('Result Table')
 console.table(result)
