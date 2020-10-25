@@ -3,12 +3,44 @@ console.log(`Test Loop : For vs ForEach vs For in`)
 // list
 var list = []
 var ch = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
-var num = 10000000
+var num = 100000
 console.log('Prepare List data')
 const start = new Date().getTime()
 for (let i = 0; i < num; i++) {
     let msg = `#${i}${ch[i % ch.length]}${i}${Math.random() * num}%`
-    list.push(`x`)
+    list.push(`${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}
+    ${msg}${msg}${msg}${msg}${msg}${msg}${msg}${msg}`)
 }
 const useTime = new Date().getTime() - start
 console.log(`Prepare List data -- End : ${useTime}`)
@@ -113,11 +145,6 @@ console.log('')
 var result = []
 var numTest = 20
 for (let i = 0; i < numTest; i++) {
-    // result.push({ "no":(i+1), ...testFor(list)})
-    // result.push({ "no":(i+1), ...testForEach(list)})
-    // result.push({ "no":(i+1), ...testForIn(list)})
-    // result.push({ "no":(i+1), ...testForOf(list)})
-    // result.push({ "no":(i+1), ...testMap(list)})
     const f1 = testFor(list)
     const f2 = testForEach(list)
     const f3 = testForIn(list)
